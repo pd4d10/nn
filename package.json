@@ -1,0 +1,26 @@
+{
+  "name": "nvm",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pd4d10/nvm.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pd4d10/nvm/issues"
+  },
+  "homepage": "https://github.com/pd4d10/nvm#readme",
+  "dependencies": {
+    "commander": "^2.16.0"
+  }
+}
