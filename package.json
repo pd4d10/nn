@@ -1,5 +1,5 @@
 {
-  "name": "nvm",
+  "name": "nvmx",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pd4d10/nvm.git"
+    "url": "git+https://github.com/pd4d10/nvmx.git"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pd4d10/nvm/issues"
+    "url": "https://github.com/pd4d10/nvmx/issues"
   },
-  "homepage": "https://github.com/pd4d10/nvm#readme",
+  "homepage": "https://github.com/pd4d10/nvmx#readme",
   "dependencies": {
     "commander": "^2.16.0",
     "mkdirp": "^0.5.1",
