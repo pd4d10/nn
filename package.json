@@ -2,7 +2,7 @@
   "name": "nvmx",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "lib/nvmx.js",
   "files": [
     "lib"
   ],
@@ -24,6 +24,7 @@
     "commander": "^2.16.0",
     "mkdirp": "^0.5.1",
     "node-fetch": "^2.1.2",
+    "rimraf": "^2.6.2",
     "tar": "^4.4.4"
   }
 }
