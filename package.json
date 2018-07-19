@@ -22,6 +22,8 @@
   "homepage": "https://github.com/pd4d10/nvm#readme",
   "dependencies": {
     "commander": "^2.16.0",
-    "node-fetch": "^2.1.2"
+    "mkdirp": "^0.5.1",
+    "node-fetch": "^2.1.2",
+    "tar": "^4.4.4"
   }
 }
