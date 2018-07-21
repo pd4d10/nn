@@ -25,6 +25,7 @@
   "homepage": "https://github.com/pd4d10/nvmx#readme",
   "dependencies": {
     "commander": "^2.16.0",
+    "inquirer": "^6.0.0",
     "mkdirp": "^0.5.1",
     "node-fetch": "^2.1.2",
     "request": "^2.87.0",
