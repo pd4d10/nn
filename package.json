@@ -2,9 +2,9 @@
   "name": "nvmx",
   "version": "0.0.1",
   "description": "",
-  "main": "lib/nvmx.js",
+  "main": "lib",
   "bin": {
-    "nvmx": "lib/nvmx.js"
+    "nvmx": "lib"
   },
   "files": [
     "lib"
@@ -22,8 +22,9 @@
   "bugs": {
     "url": "https://github.com/pd4d10/nvmx/issues"
   },
-  "homepage": "https://github.com/pd4d10/nvmx#readme",
+  "homepage": "https://github.com/pd4d10/nvmx",
   "dependencies": {
+    "chalk": "^2.4.1",
     "commander": "^2.16.0",
     "inquirer": "^6.0.0",
     "mkdirp": "^0.5.1",
