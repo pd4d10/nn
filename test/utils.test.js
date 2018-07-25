@@ -1,63 +1,87 @@
-const { getMirrorUrl, mirrorMapper } = require('../lib/utils')
+const { getDownloadUrl } = require('../lib/utils')
 
-const nodejsVersions = [
-  '10',
-  '8',
-  '4',
-  '0',
-  '10.7',
-  '8.9',
-  '4.0',
-  '0.12',
-  '10.7.0',
-  '8.9.4',
-  '4.0.0',
-  '0.12.18',
-]
-const iojsVersions = ['3', '1', '3.3', '1.0', '3.3.1', '1.0.0']
-const rcVersion = ['v10.0.0-rc.1']
-const nightlyVersion = ['v10.0.0-nightly2017110118df171307']
+jest.mock('node-fetch')
 
-describe('get mirror URL', () => {
-  test('nodejs', () => {
-    nodejsVersions.forEach(version => {
-      expect(getMirrorUrl(version)).toBe(mirrorMapper.default.nodejs)
-    })
+describe('get download URL', () => {
+  test('nodejs', async () => {
+    expect(await getDownloadUrl('10.7.0')).toBe('https://nodejs.org/dist/v10.7.0/node-v10.7.0-linux-x64.tar.gz')
   })
-  test('iojs', () => {
-    iojsVersions.forEach(version => {
-      expect(getMirrorUrl(version)).toBe(mirrorMapper.default.iojs)
-    })
+  test('iojs', async () => {
+    expect(await getDownloadUrl('3.3.1')).toBe('https://iojs.org/dist/v3.3.1/iojs-v3.3.1-linux-x64.tar.gz')
   })
-  test('rc', () => {
-    rcVersion.forEach(version => {
-      expect(getMirrorUrl(version)).toBe(mirrorMapper.default.rc)
-    })
+  test('rc', async () => {
+    expect(await getDownloadUrl('10.2.1-rc.1')).toBe('https://nodejs.org/download/rc/v10.2.1-rc.1/node-v10.2.1-rc.1-linux-x64.tar.gz')
   })
-  test('nightly', () => {
-    nightlyVersion.forEach(version => {
-      expect(getMirrorUrl(version)).toBe(mirrorMapper.default.nightly)
-    })
-  })
-  test('custom mirror', () => {
-    expect(getMirrorUrl('10', 'taobao')).toBe(mirrorMapper.taobao.nodejs)
-  })
-  test('mirror fallback to default', () => {
-    expect(getMirrorUrl('3', 'tsinghua')).toBe(mirrorMapper.default.iojs)
-  })
-  test('invalid mirror', () => {
-    const spy = jest.spyOn(global.console, 'warn')
-    expect(getMirrorUrl('10', 'unknown')).toBe(mirrorMapper.default.nodejs)
-    expect(spy).toBeCalled()
-  })
-  test('chakracore', () => {
-    expect(getMirrorUrl('10', undefined, true)).toBe(
-      mirrorMapper.default.chakracore,
+  test('nightly', async () => {
+    expect(await getDownloadUrl('11.0.0-nightly201807245384570486')).toBe(
+      'https://nodejs.org/download/nightly/v11.0.0-nightly201807245384570486/node-v11.0.0-nightly201807245384570486-linux-x64.tar.gz',
     )
   })
-  test('chakracore nightly', () => {
-    expect(
-      getMirrorUrl('v10.0.0-nightly201712053a6b048fb5', undefined, true),
-    ).toBe(mirrorMapper.default.chakracore_nightly)
+  test('v8-canary', async () => {
+    expect(await getDownloadUrl('11.0.0-v8-canary201807247c08774a29')).toBe(
+      'https://nodejs.org/download/v8-canary/v11.0.0-v8-canary201807247c08774a29/node-v11.0.0-v8-canary201807247c08774a29-linux-x64.tar.gz',
+    )
   })
+
+  test('only major', async () => {
+    expect(await getDownloadUrl('10')).toBe('https://nodejs.org/dist/v10.7.0/node-v10.7.0-linux-x64.tar.gz')
+  })
+  test('only major and minor', async () => {
+    expect(await getDownloadUrl('10.7')).toBe('https://nodejs.org/dist/v10.7.0/node-v10.7.0-linux-x64.tar.gz')
+  })
+  test('only major for iojs', async () => {
+    expect(await getDownloadUrl('3')).toBe('https://iojs.org/dist/v3.3.1/iojs-v3.3.1-linux-x64.tar.gz')
+  })
+  test('only major and minor for iojs', async () => {
+    expect(await getDownloadUrl('3.3')).toBe('https://iojs.org/dist/v3.3.1/iojs-v3.3.1-linux-x64.tar.gz')
+  })
+
+  test('latest', async () => {
+    expect(await getDownloadUrl('latest')).toBe('https://nodejs.org/dist/v10.7.0/node-v10.7.0-linux-x64.tar.gz')
+  })
+  test('latest nodejs', async () => {
+    expect(await getDownloadUrl('nodejs')).toBe('https://nodejs.org/dist/v10.7.0/node-v10.7.0-linux-x64.tar.gz')
+  })
+  test('latest iojs', async () => {
+    expect(await getDownloadUrl('iojs')).toBe('https://iojs.org/dist/v3.3.1/iojs-v3.3.1-linux-x64.tar.gz')
+  })
+  test('latest rc', async () => {
+    expect(await getDownloadUrl('rc')).toBe('https://nodejs.org/download/rc/v10.2.1-rc.1/node-v10.2.1-rc.1-linux-x64.tar.gz')
+  })
+  test('latest nightly', async () => {
+    expect(await getDownloadUrl('nightly')).toBe(
+      'https://nodejs.org/download/nightly/v11.0.0-nightly201807245384570486/node-v11.0.0-nightly201807245384570486-linux-x64.tar.gz',
+    )
+  })
+  test('latest v8-canary', async () => {
+    expect(await getDownloadUrl('v8-canary')).toBe(
+      'https://nodejs.org/download/v8-canary/v11.0.0-v8-canary201807247c08774a29/node-v11.0.0-v8-canary201807247c08774a29-linux-x64.tar.gz',
+    )
+  })
+
+  // test('different mirror of nodejs', () => {
+  //   expect(getDownloadUrl('11.0.0-v8-canary201807140f69779e03')).toBe(
+  //     'https://nodejs.org/download/v8-canary/v11.0.0-v8-canary201807140f69779e03/node-v11.0.0-v8-canary201807140f69779e03-linux-x64.tar.gz',
+  //   )
+  // })
+  // test('different mirror of node-chakracore', () => {
+  //   expect(getDownloadUrl('10.6.0')).toBe('https://nodejs.org/download/chakracore-release/v10.6.0/node-v10.6.0-linux-x64.tar.gz')
+  //   expect(getDownloadUrl('11.0.0-nightly201807248c628de0f6')).toBe(
+  //     'https://nodejs.org/download/chakracore-nightly/v11.0.0-nightly201807248c628de0f6/node-v11.0.0-nightly201807248c628de0f6-linux-x64.tar.gz',
+  //   )
+  // })
+  // test('custom mirror', async () => {
+  //   const url = await getDownloadUrl('10.7.0', 'taobao')
+  //   expect(url).toBe('https://npm.taobao.org/mirrors/node/v10.7.0/node-v10.7.0-linux-x64.tar.gz')
+  // })
+  // test('mirror fallback to default', () => {
+  //   const spy = jest.spyOn(global.console, 'warn')
+  //   expect(getDownloadUrl('3.3.1', 'tsinghua')).toBe('https://iojs.org/dist/v3.3.1/iojs-v3.3.1-linux-x64.tar.gz')
+  //   expect(spy).toBeCalled()
+  // })
+  // test('invalid mirror', () => {
+  //   const spy = jest.spyOn(global.console, 'warn')
+  //   expect(getDownloadUrl('10.7.0', 'unknown')).toBe('https://nodejs.org/dist/v10.7.0/node-v10.7.0-linux-x64.tar.gz')
+  //   expect(spy).toBeCalled()
+  // })
 })
