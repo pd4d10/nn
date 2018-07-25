@@ -42,6 +42,9 @@ describe('get download URL', () => {
   test('latest nodejs', async () => {
     expect(await getDownloadUrl('nodejs')).toBe('https://nodejs.org/dist/v10.7.0/node-v10.7.0-linux-x64.tar.gz')
   })
+  test('latest lts', async () => {
+    expect(await getDownloadUrl('lts')).toBe('https://nodejs.org/dist/v8.11.3/node-v8.11.3-linux-x64.tar.gz')
+  })
   test('latest iojs', async () => {
     expect(await getDownloadUrl('iojs')).toBe('https://iojs.org/dist/v3.3.1/iojs-v3.3.1-linux-x64.tar.gz')
   })
@@ -56,6 +59,18 @@ describe('get download URL', () => {
   test('latest v8-canary', async () => {
     expect(await getDownloadUrl('v8-canary')).toBe(
       'https://nodejs.org/download/v8-canary/v11.0.0-v8-canary201807247c08774a29/node-v11.0.0-v8-canary201807247c08774a29-linux-x64.tar.gz',
+    )
+  })
+
+  test('node-chakracore', async () => {
+    expect(await getDownloadUrl('nodejs', true)).toBe('https://nodejs.org/download/chakracore-release/v10.6.0/node-v10.6.0-linux-x64.tar.gz')
+  })
+  test('node-chakracore rc', async () => {
+    expect(await getDownloadUrl('rc', true)).toBe('https://nodejs.org/download/chakracore-rc/v10.1.0-rc.0/node-v10.1.0-rc.0-linux-x64.tar.gz')
+  })
+  test('node-chakracore nightly', async () => {
+    expect(await getDownloadUrl('nightly', true)).toBe(
+      'https://nodejs.org/download/chakracore-nightly/v11.0.0-nightly2018072567ec50df9e/node-v11.0.0-nightly2018072567ec50df9e-linux-x64.tar.gz',
     )
   })
 
