@@ -1,5 +1,13 @@
 {
   "semi": false,
   "singleQuote": true,
-  "trailingComma": "all"
+  "trailingComma": "all",
+  "overrides": [
+    {
+      "files": "test/*.test.js",
+      "options": {
+        "printWidth": 150
+      }
+    }
+  ]
 }

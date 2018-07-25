@@ -1,0 +1,5 @@
+[
+{"version":"v10.1.0-rc.0","date":"2018-05-23","files":["headers","linux-x64","osx-x64-tar","win-arm-7z","win-arm-exe","win-arm-zip","win-x64-7z","win-x64-exe","win-x64-zip","win-x86-7z","win-x86-exe","win-x86-zip"],"v8":"","uv":"","zlib":null,"openssl":null,"modules":null,"lts":false},
+{"version":"v10.0.0-rc.1","date":"2018-04-23","files":["headers","linux-x64","osx-x64-tar","win-arm-7z","win-arm-exe","win-arm-zip","win-x64-7z","win-x64-exe","win-x64-zip","win-x86-7z","win-x86-exe","win-x86-zip"],"v8":"","uv":"","zlib":null,"openssl":null,"modules":null,"lts":false},
+{"version":"v10.0.0-rc.0","date":"2018-04-23","files":["headers","linux-x64","osx-x64-tar","win-arm-7z","win-arm-exe","win-arm-zip","win-x64-7z","win-x64-exe","win-x64-zip","win-x86-7z","win-x86-exe","win-x86-zip"],"v8":"","uv":"","zlib":null,"openssl":null,"modules":null,"lts":false}
+]
