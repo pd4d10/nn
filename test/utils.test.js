@@ -1,77 +1,105 @@
-const { getDownloadUrl } = require('../lib/utils')
+const { getMirrorAndVersion } = require('../lib/utils')
 
 jest.mock('node-fetch')
 
 describe('get download URL', () => {
   test('nodejs', async () => {
-    expect(await getDownloadUrl('10.7.0')).toBe('https://nodejs.org/dist/v10.7.0/node-v10.7.0-linux-x64.tar.gz')
+    const { mirror, version } = await getMirrorAndVersion('10.7.0')
+    expect(mirror).toBe('https://nodejs.org/dist')
+    expect(version).toBe('v10.7.0')
   })
   test('iojs', async () => {
-    expect(await getDownloadUrl('3.3.1')).toBe('https://iojs.org/dist/v3.3.1/iojs-v3.3.1-linux-x64.tar.gz')
+    const { mirror, version } = await getMirrorAndVersion('3.3.1')
+    expect(mirror).toBe('https://iojs.org/dist')
+    expect(version).toBe('v3.3.1')
   })
   test('rc', async () => {
-    expect(await getDownloadUrl('10.2.1-rc.1')).toBe('https://nodejs.org/download/rc/v10.2.1-rc.1/node-v10.2.1-rc.1-linux-x64.tar.gz')
+    const { mirror, version } = await getMirrorAndVersion('10.2.1-rc.1')
+    expect(mirror).toBe('https://nodejs.org/download/rc')
+    expect(version).toBe('v10.2.1-rc.1')
   })
   test('nightly', async () => {
-    expect(await getDownloadUrl('11.0.0-nightly201807245384570486')).toBe(
-      'https://nodejs.org/download/nightly/v11.0.0-nightly201807245384570486/node-v11.0.0-nightly201807245384570486-linux-x64.tar.gz',
-    )
+    const { mirror, version } = await getMirrorAndVersion('11.0.0-nightly201807245384570486')
+    expect(mirror).toBe('https://nodejs.org/download/nightly')
+    expect(version).toBe('v11.0.0-nightly201807245384570486')
   })
   test('v8-canary', async () => {
-    expect(await getDownloadUrl('11.0.0-v8-canary201807247c08774a29')).toBe(
-      'https://nodejs.org/download/v8-canary/v11.0.0-v8-canary201807247c08774a29/node-v11.0.0-v8-canary201807247c08774a29-linux-x64.tar.gz',
-    )
+    const { mirror, version } = await getMirrorAndVersion('11.0.0-v8-canary201807247c08774a29')
+    expect(mirror).toBe('https://nodejs.org/download/v8-canary')
+    expect(version).toBe('v11.0.0-v8-canary201807247c08774a29')
   })
 
   test('only major', async () => {
-    expect(await getDownloadUrl('10')).toBe('https://nodejs.org/dist/v10.7.0/node-v10.7.0-linux-x64.tar.gz')
+    const { mirror, version } = await getMirrorAndVersion('10')
+    expect(mirror).toBe('https://nodejs.org/dist')
+    expect(version).toBe('v10.7.0')
   })
   test('only major and minor', async () => {
-    expect(await getDownloadUrl('10.7')).toBe('https://nodejs.org/dist/v10.7.0/node-v10.7.0-linux-x64.tar.gz')
+    const { mirror, version } = await getMirrorAndVersion('10.7')
+    expect(mirror).toBe('https://nodejs.org/dist')
+    expect(version).toBe('v10.7.0')
   })
   test('only major for iojs', async () => {
-    expect(await getDownloadUrl('3')).toBe('https://iojs.org/dist/v3.3.1/iojs-v3.3.1-linux-x64.tar.gz')
+    const { mirror, version } = await getMirrorAndVersion('3')
+    expect(mirror).toBe('https://iojs.org/dist')
+    expect(version).toBe('v3.3.1')
   })
   test('only major and minor for iojs', async () => {
-    expect(await getDownloadUrl('3.3')).toBe('https://iojs.org/dist/v3.3.1/iojs-v3.3.1-linux-x64.tar.gz')
+    const { mirror, version } = await getMirrorAndVersion('3.3')
+    expect(mirror).toBe('https://iojs.org/dist')
+    expect(version).toBe('v3.3.1')
   })
 
   test('latest', async () => {
-    expect(await getDownloadUrl('latest')).toBe('https://nodejs.org/dist/v10.7.0/node-v10.7.0-linux-x64.tar.gz')
+    const { mirror, version } = await getMirrorAndVersion('latest')
+    expect(mirror).toBe('https://nodejs.org/dist')
+    expect(version).toBe('v10.7.0')
   })
   test('latest nodejs', async () => {
-    expect(await getDownloadUrl('nodejs')).toBe('https://nodejs.org/dist/v10.7.0/node-v10.7.0-linux-x64.tar.gz')
+    const { mirror, version } = await getMirrorAndVersion('nodejs')
+    expect(mirror).toBe('https://nodejs.org/dist')
+    expect(version).toBe('v10.7.0')
   })
   test('latest lts', async () => {
-    expect(await getDownloadUrl('lts')).toBe('https://nodejs.org/dist/v8.11.3/node-v8.11.3-linux-x64.tar.gz')
+    const { mirror, version } = await getMirrorAndVersion('lts')
+    expect(mirror).toBe('https://nodejs.org/dist')
+    expect(version).toBe('v8.11.3')
   })
   test('latest iojs', async () => {
-    expect(await getDownloadUrl('iojs')).toBe('https://iojs.org/dist/v3.3.1/iojs-v3.3.1-linux-x64.tar.gz')
+    const { mirror, version } = await getMirrorAndVersion('iojs')
+    expect(mirror).toBe('https://iojs.org/dist')
+    expect(version).toBe('v3.3.1')
   })
   test('latest rc', async () => {
-    expect(await getDownloadUrl('rc')).toBe('https://nodejs.org/download/rc/v10.2.1-rc.1/node-v10.2.1-rc.1-linux-x64.tar.gz')
+    const { mirror, version } = await getMirrorAndVersion('rc')
+    expect(mirror).toBe('https://nodejs.org/download/rc')
+    expect(version).toBe('v10.2.1-rc.1')
   })
   test('latest nightly', async () => {
-    expect(await getDownloadUrl('nightly')).toBe(
-      'https://nodejs.org/download/nightly/v11.0.0-nightly201807245384570486/node-v11.0.0-nightly201807245384570486-linux-x64.tar.gz',
-    )
+    const { mirror, version } = await getMirrorAndVersion('nightly')
+    expect(mirror).toBe('https://nodejs.org/download/nightly')
+    expect(version).toBe('v11.0.0-nightly201807245384570486')
   })
   test('latest v8-canary', async () => {
-    expect(await getDownloadUrl('v8-canary')).toBe(
-      'https://nodejs.org/download/v8-canary/v11.0.0-v8-canary201807247c08774a29/node-v11.0.0-v8-canary201807247c08774a29-linux-x64.tar.gz',
-    )
+    const { mirror, version } = await getMirrorAndVersion('v8-canary')
+    expect(mirror).toBe('https://nodejs.org/download/v8-canary')
+    expect(version).toBe('v11.0.0-v8-canary201807247c08774a29')
   })
 
   test('node-chakracore', async () => {
-    expect(await getDownloadUrl('nodejs', true)).toBe('https://nodejs.org/download/chakracore-release/v10.6.0/node-v10.6.0-linux-x64.tar.gz')
+    const { mirror, version } = await getMirrorAndVersion('nodejs', true)
+    expect(mirror).toBe('https://nodejs.org/download/chakracore-release')
+    expect(version).toBe('v10.6.0')
   })
   test('node-chakracore rc', async () => {
-    expect(await getDownloadUrl('rc', true)).toBe('https://nodejs.org/download/chakracore-rc/v10.1.0-rc.0/node-v10.1.0-rc.0-linux-x64.tar.gz')
+    const { mirror, version } = await getMirrorAndVersion('rc', true)
+    expect(mirror).toBe('https://nodejs.org/download/chakracore-rc')
+    expect(version).toBe('v10.1.0-rc.0')
   })
   test('node-chakracore nightly', async () => {
-    expect(await getDownloadUrl('nightly', true)).toBe(
-      'https://nodejs.org/download/chakracore-nightly/v11.0.0-nightly2018072567ec50df9e/node-v11.0.0-nightly2018072567ec50df9e-linux-x64.tar.gz',
-    )
+    const { mirror, version } = await getMirrorAndVersion('nightly', true)
+    expect(mirror).toBe('https://nodejs.org/download/chakracore-nightly')
+    expect(version).toBe('v11.0.0-nightly2018072567ec50df9e')
   })
 
   // test('different mirror of nodejs', () => {
