@@ -1,3 +1,5 @@
+# nvmx
+
 ## Usage
 
 ```sh
@@ -13,8 +15,8 @@ nvmx install lts      # latest LTS
 nvmx install rc       # latest RC
 nvmx install nightly  # latest nightly
 
-nvmx install --chakracore 8.9.4   # Install Node.js ChakraCore
-nvmx install --chakracore nightly # Install latest nightly of Node.js ChakraCore
+nvmx install --chakra 8.9.4   # Install Node.js ChakraCore
+nvmx install --chakra nightly # Install latest nightly of Node.js ChakraCore
 
 nvmx ls # List installed
 nvmx ls-remote
