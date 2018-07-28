@@ -4,13 +4,15 @@
   "description": "",
   "main": "lib",
   "bin": {
-    "nvmx": "lib"
+    "nvmx": "lib/index.js"
   },
   "files": [
     "lib"
   ],
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "watch": "jest --watch",
+    "build": "pkg --targets win-x64,win-x86,macos-x64,macos-x86,linux-x64,linux-x86 ."
   },
   "repository": {
     "type": "git",
