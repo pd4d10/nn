@@ -56,7 +56,7 @@ describe('get download URL', () => {
     expect(version).toBe('v10.7.0')
   })
   test('latest nodejs', async () => {
-    const { mirror, version } = await getMirrorAndVersion('nodejs')
+    const { mirror, version } = await getMirrorAndVersion('node')
     expect(mirror).toBe('https://nodejs.org/dist')
     expect(version).toBe('v10.7.0')
   })
@@ -87,17 +87,22 @@ describe('get download URL', () => {
   })
 
   test('node-chakracore', async () => {
-    const { mirror, version } = await getMirrorAndVersion('nodejs', true)
+    const { mirror, version } = await getMirrorAndVersion('chakracore-node')
+    expect(mirror).toBe('https://nodejs.org/download/chakracore-release')
+    expect(version).toBe('v10.6.0')
+  })
+  test('node-chakracore', async () => {
+    const { mirror, version } = await getMirrorAndVersion('cc-node')
     expect(mirror).toBe('https://nodejs.org/download/chakracore-release')
     expect(version).toBe('v10.6.0')
   })
   test('node-chakracore rc', async () => {
-    const { mirror, version } = await getMirrorAndVersion('rc', true)
+    const { mirror, version } = await getMirrorAndVersion('cc-rc')
     expect(mirror).toBe('https://nodejs.org/download/chakracore-rc')
     expect(version).toBe('v10.1.0-rc.0')
   })
   test('node-chakracore nightly', async () => {
-    const { mirror, version } = await getMirrorAndVersion('nightly', true)
+    const { mirror, version } = await getMirrorAndVersion('cc-nightly')
     expect(mirror).toBe('https://nodejs.org/download/chakracore-nightly')
     expect(version).toBe('v11.0.0-nightly2018072567ec50df9e')
   })
