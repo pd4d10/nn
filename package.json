@@ -29,6 +29,7 @@
     "inquirer": "^6.0.0",
     "mkdirp": "^0.5.1",
     "node-fetch": "^2.1.2",
+    "progress": "^2.0.0",
     "request": "^2.87.0",
     "rimraf": "^2.6.2",
     "targz": "^1.0.1"
