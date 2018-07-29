@@ -1,7 +1,5 @@
 const { getMirrorAndVersion } = require('../lib/add')
 
-jest.mock('node-fetch')
-
 describe('get download URL', () => {
   test('nodejs', async () => {
     const { mirror, version } = await getMirrorAndVersion('10.7.0')
@@ -101,6 +99,12 @@ describe('get download URL', () => {
     expect(mirror).toBe('https://nodejs.org/download/chakracore-nightly')
     expect(version).toBe('v11.0.0-nightly2018072567ec50df9e')
   })
+
+  // test('nodejs', async () => {
+  //   const { mirror, version } = await getMirrorAndVersion('10.7.0', false, 'x86')
+  //   expect(mirror).toBe('https://nodejs.org/dist')
+  //   expect(version).toBe('v10.7.0')
+  // })
 
   // test('different mirror of nodejs', () => {
   //   expect(getDownloadUrl('11.0.0-v8-canary201807140f69779e03')).toBe(
