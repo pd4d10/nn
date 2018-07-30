@@ -29,13 +29,14 @@
     "chalk": "^2.4.1",
     "commander": "^2.16.0",
     "fs-extra": "^7.0.0",
+    "fstream": "^1.0.11",
     "inquirer": "^6.0.0",
-    "mkdirp": "^0.5.1",
     "node-fetch": "^2.1.2",
     "progress": "^2.0.0",
     "request": "^2.87.0",
     "rimraf": "^2.6.2",
-    "targz": "^1.0.1"
+    "targz": "^1.0.1",
+    "unzipper": "^0.9.2"
   },
   "devDependencies": {
     "jest": "^23.4.1"
