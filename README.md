@@ -68,4 +68,12 @@ nvmx remote --chakracore
 nvmx remote -c
 ```
 
+### Run specific version without using it
+
+```sh
+nvmx run 10.7.0 app.js              # Run app.js with specified version
+nvmx run --arch=x86 8.9.4 app.js    # Run app.js with specified arch
+nvmx run --chakracore 10.6.0 app.js # Run app.js with node-chakracore
+```
+
 ### Alias
