@@ -45,9 +45,7 @@
       "win-x64",
       "win-x86",
       "macos-x64",
-      "macos-x86",
-      "linux-x64",
-      "linux-x86"
+      "linux-x64"
     ]
   }
 }
