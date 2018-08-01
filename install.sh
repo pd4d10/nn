@@ -19,9 +19,11 @@ case "$(uname -s)" in
   *)          echo "unknown platform, exiting..."; exit 1;
 esac
 
-echo "Downloading $VERSION..."
 url="https://github.com/pd4d10/nvmx/releases/download/$VERSION/nvmx-$platform-x64"
+echo "Downloading $VERSION..."
+echo url
 curl -L -o $BIN_DIR/nvmx $url
+echo "Download complete"
 
 chmod a+x $BIN_DIR/nvmx
 

@@ -1,20 +1,31 @@
 # nvmx
 
-nvmx is a Node.js version manager
+nvmx is a Node.js version manager. It is
 
-- **Full featured**: Support stable, rc, nightly and v8-canary versions, support node-chakracore
-- **Cross platform**: Support Windows, macOS and Linux, support x86 and x64
-- **Zero dependencies**
+- **Full featured**: Support node's release, rc, nightly, v8-canary, and node-chakracore's release, rc, nightly
+- **Cross platform**: Support Windows x64, windows x86, macOS and Linux
+- **Zero dependencies**: One command to install, no dependencies
 
 ## Installation
 
 ### macOS and Linux users
 
+Open your terminal, and execute following command:
+
 ```sh
-curl
+curl -o- https://raw.githubusercontent.com/pd4d10/nvmx/master/install.sh | bash
+```
+
+Or use wget:
+
+```sh
+wget -qO- https://raw.githubusercontent.com/pd4d10/nvmx/master/install.sh | bash
 ```
 
 ### Windows users
+
+- Download this script: https://raw.githubusercontent.com/pd4d10/nvmx/master/install.ps1
+- Right click it, then select _Run with powershell_
 
 ## Usage
 
