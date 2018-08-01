@@ -12,7 +12,7 @@
   "scripts": {
     "test": "jest",
     "watch": "jest --watch",
-    "build": "pkg --out-path dist ."
+    "build": "rm -rf dist && pkg --out-path dist ."
   },
   "repository": {
     "type": "git",
@@ -46,6 +46,19 @@
       "win-x86",
       "macos-x64",
       "linux-x64"
+    ]
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "overrides": [
+      {
+        "files": "test/*.test.js",
+        "options": {
+          "printWidth": 150
+        }
+      }
     ]
   }
 }

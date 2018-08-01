@@ -15,7 +15,7 @@ $url = "https://github.com/pd4d10/nvmx/releases/download/$version/nvmx-win-$arch
 # https://stackoverflow.com/a/19853757
 mkdir $nvmx_bin -ErrorAction SilentlyContinue
 
-Write-Output "Downloading $version..."
+Write-Output "Downloading nvmx $version..."
 Write-Output $url
 # https://stackoverflow.com/a/41618979
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12

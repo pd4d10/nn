@@ -20,8 +20,8 @@ case "$(uname -s)" in
 esac
 
 url="https://github.com/pd4d10/nvmx/releases/download/$VERSION/nvmx-$platform-x64"
-echo "Downloading $VERSION..."
-echo url
+echo "Downloading nvmx $VERSION..."
+echo $url
 curl -L -o $BIN_DIR/nvmx $url
 echo "Download complete"
 
