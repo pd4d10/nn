@@ -1,4 +1,4 @@
-# nvmx ![build status](https://img.shields.io/travis/pd4d10/nvmx.svg)
+# nvmx [![build status](https://img.shields.io/travis/pd4d10/nvmx.svg)](https://travis-ci.org/pd4d10/nvmx)
 
 nvmx is a Node.js version manager. It is
 
