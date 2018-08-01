@@ -39,4 +39,4 @@ Write-Output "https://github.com/pd4d10/nvmx/issues/new"
 Write-Output ""
 
 # https://stackoverflow.com/a/24621106
-Read-Host -Prompt "Press Enter to exit"
+# Read-Host -Prompt "Press Enter to exit"

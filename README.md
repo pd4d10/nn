@@ -10,7 +10,7 @@ nvmx is a Node.js version manager. It is
 
 ### macOS and Linux users
 
-Open your terminal, and execute following command:
+Open your terminal and run following command:
 
 ```sh
 curl -o- https://raw.githubusercontent.com/pd4d10/nvmx/master/install.sh | bash
@@ -24,10 +24,20 @@ wget -qO- https://raw.githubusercontent.com/pd4d10/nvmx/master/install.sh | bash
 
 ### Windows users
 
-- Download this script: https://raw.githubusercontent.com/pd4d10/nvmx/master/install.ps1
-- Right click it, then select _Run with powershell_
+Open PowerShell and run following command:
+
+```powershell
+Invoke-Expression (Invoke-WebRequest https://raw.githubusercontent.com/pd4d10/nvmx/master/install.ps1)
+```
 
 ## Usage
+
+Use `-h` or `--help` to get help messages
+
+```sh
+nvmx --help      # Show all commands
+nvmx add --help  # Show help message for add command
+```
 
 ### Add a version
 
@@ -118,6 +128,12 @@ nvmx support nightly, rc, and even node-chakracore. They are hosted on different
 # default (official mirror), taobao, tsinghua
 
 nvmx mirror taobao  # Set mirror to taobao
+```
+
+### Upgrade nvmx
+
+```sh
+nvmx upgrade  # Downloading latest version of nvmx from GitHub and replace the old version
 ```
 
 # License
