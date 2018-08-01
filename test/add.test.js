@@ -1,107 +1,107 @@
-const { getMirrorAndVersion } = require('../lib/add')
+const { getMirrorUrlByTypeAndVersion } = require('../lib/add')
 
 describe('get download URL', () => {
   test('nodejs', async () => {
-    const { mirror, version } = await getMirrorAndVersion('10.7.0')
+    const { mirror, version } = await getMirrorUrlByTypeAndVersion('10.7.0')
     expect(mirror).toBe('https://nodejs.org/dist')
     expect(version).toBe('v10.7.0')
   })
   test('iojs', async () => {
-    const { mirror, version } = await getMirrorAndVersion('3.3.1')
+    const { mirror, version } = await getMirrorUrlByTypeAndVersion('3.3.1')
     expect(mirror).toBe('https://iojs.org/dist')
     expect(version).toBe('v3.3.1')
   })
   test('rc', async () => {
-    const { mirror, version } = await getMirrorAndVersion('10.2.1-rc.1')
+    const { mirror, version } = await getMirrorUrlByTypeAndVersion('10.2.1-rc.1')
     expect(mirror).toBe('https://nodejs.org/download/rc')
     expect(version).toBe('v10.2.1-rc.1')
   })
   test('nightly', async () => {
-    const { mirror, version } = await getMirrorAndVersion('11.0.0-nightly201807245384570486')
+    const { mirror, version } = await getMirrorUrlByTypeAndVersion('11.0.0-nightly201807245384570486')
     expect(mirror).toBe('https://nodejs.org/download/nightly')
     expect(version).toBe('v11.0.0-nightly201807245384570486')
   })
   test('v8-canary', async () => {
-    const { mirror, version } = await getMirrorAndVersion('11.0.0-v8-canary201807247c08774a29')
+    const { mirror, version } = await getMirrorUrlByTypeAndVersion('11.0.0-v8-canary201807247c08774a29')
     expect(mirror).toBe('https://nodejs.org/download/v8-canary')
     expect(version).toBe('v11.0.0-v8-canary201807247c08774a29')
   })
 
   test('only major', async () => {
-    const { mirror, version } = await getMirrorAndVersion('10')
+    const { mirror, version } = await getMirrorUrlByTypeAndVersion('10')
     expect(mirror).toBe('https://nodejs.org/dist')
     expect(version).toBe('v10.7.0')
   })
   test('only major and minor', async () => {
-    const { mirror, version } = await getMirrorAndVersion('10.7')
+    const { mirror, version } = await getMirrorUrlByTypeAndVersion('10.7')
     expect(mirror).toBe('https://nodejs.org/dist')
     expect(version).toBe('v10.7.0')
   })
   test('only major for iojs', async () => {
-    const { mirror, version } = await getMirrorAndVersion('3')
+    const { mirror, version } = await getMirrorUrlByTypeAndVersion('3')
     expect(mirror).toBe('https://iojs.org/dist')
     expect(version).toBe('v3.3.1')
   })
   test('only major and minor for iojs', async () => {
-    const { mirror, version } = await getMirrorAndVersion('3.3')
+    const { mirror, version } = await getMirrorUrlByTypeAndVersion('3.3')
     expect(mirror).toBe('https://iojs.org/dist')
     expect(version).toBe('v3.3.1')
   })
 
   test('latest', async () => {
-    const { mirror, version } = await getMirrorAndVersion('latest')
+    const { mirror, version } = await getMirrorUrlByTypeAndVersion('latest')
     expect(mirror).toBe('https://nodejs.org/dist')
     expect(version).toBe('v10.7.0')
   })
   test('latest nodejs', async () => {
-    const { mirror, version } = await getMirrorAndVersion('node')
+    const { mirror, version } = await getMirrorUrlByTypeAndVersion('node')
     expect(mirror).toBe('https://nodejs.org/dist')
     expect(version).toBe('v10.7.0')
   })
   test('latest lts', async () => {
-    const { mirror, version } = await getMirrorAndVersion('lts')
+    const { mirror, version } = await getMirrorUrlByTypeAndVersion('lts')
     expect(mirror).toBe('https://nodejs.org/dist')
     expect(version).toBe('v8.11.3')
   })
   test('latest iojs', async () => {
-    const { mirror, version } = await getMirrorAndVersion('iojs')
+    const { mirror, version } = await getMirrorUrlByTypeAndVersion('iojs')
     expect(mirror).toBe('https://iojs.org/dist')
     expect(version).toBe('v3.3.1')
   })
   test('latest rc', async () => {
-    const { mirror, version } = await getMirrorAndVersion('rc')
+    const { mirror, version } = await getMirrorUrlByTypeAndVersion('rc')
     expect(mirror).toBe('https://nodejs.org/download/rc')
     expect(version).toBe('v10.2.1-rc.1')
   })
   test('latest nightly', async () => {
-    const { mirror, version } = await getMirrorAndVersion('nightly')
+    const { mirror, version } = await getMirrorUrlByTypeAndVersion('nightly')
     expect(mirror).toBe('https://nodejs.org/download/nightly')
     expect(version).toBe('v11.0.0-nightly201807245384570486')
   })
   test('latest v8-canary', async () => {
-    const { mirror, version } = await getMirrorAndVersion('v8-canary')
+    const { mirror, version } = await getMirrorUrlByTypeAndVersion('v8-canary')
     expect(mirror).toBe('https://nodejs.org/download/v8-canary')
     expect(version).toBe('v11.0.0-v8-canary201807247c08774a29')
   })
 
   test('node-chakracore', async () => {
-    const { mirror, version } = await getMirrorAndVersion('node', true)
+    const { mirror, version } = await getMirrorUrlByTypeAndVersion('node', true)
     expect(mirror).toBe('https://nodejs.org/download/chakracore-release')
     expect(version).toBe('v10.6.0')
   })
   test('node-chakracore rc', async () => {
-    const { mirror, version } = await getMirrorAndVersion('rc', true)
+    const { mirror, version } = await getMirrorUrlByTypeAndVersion('rc', true)
     expect(mirror).toBe('https://nodejs.org/download/chakracore-rc')
     expect(version).toBe('v10.1.0-rc.0')
   })
   test('node-chakracore nightly', async () => {
-    const { mirror, version } = await getMirrorAndVersion('nightly', true)
+    const { mirror, version } = await getMirrorUrlByTypeAndVersion('nightly', true)
     expect(mirror).toBe('https://nodejs.org/download/chakracore-nightly')
     expect(version).toBe('v11.0.0-nightly2018072567ec50df9e')
   })
 
   // test('nodejs', async () => {
-  //   const { mirror, version } = await getMirrorAndVersion('10.7.0', false, 'x86')
+  //   const { mirror, version } = await getMirrorUrlByTypeAndVersion('10.7.0', false, 'x86')
   //   expect(mirror).toBe('https://nodejs.org/dist')
   //   expect(version).toBe('v10.7.0')
   // })
