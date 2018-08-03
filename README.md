@@ -1,4 +1,4 @@
-# nvmx [![build status](https://img.shields.io/travis/pd4d10/nvmx.svg)](https://travis-ci.org/pd4d10/nvmx)
+# nvmx [![Travis](https://img.shields.io/travis/pd4d10/nvmx.svg)](https://travis-ci.org/pd4d10/nvmx) [![AppVeyor](https://img.shields.io/appveyor/ci/pd4d10/nvmx.svg)](https://ci.appveyor.com/project/pd4d10/nvmx)
 
 nvmx is a Node.js version manager. It is
 
@@ -150,6 +150,6 @@ nvmx is written in JavaScript. We use [pkg](https://github.com/zeit/pkg) to bund
 
 The installation script just download the latest version from [release](https://github.com/pd4d10/nvmx/releases), place it to `~/.nvmx`(macOS, Linux) or `C:\Users\Your-User-Name\.nvmx`(Windows), then add it to PATH so users could access it in shell directly.
 
-# License
+## License
 
 MIT
