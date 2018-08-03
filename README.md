@@ -138,7 +138,11 @@ nvmx mirror taobao  # Set mirror to taobao
 nvmx upgrade  # Downloading latest version of nvmx from GitHub and replace the old version
 ```
 
-**Notice**: Seems that program at Windows can't delete itself while running. So you may need to download binary from [release page](https://github.com/pd4d10/nvmx/releases), rename to `nvmx.exe` and replace `C:\Users\YourUserName\.nvmx\bin\nvmx.exe` with it
+**Notice**: Seems that program at Windows can't delete itself while running. So you may need to download binary from [release page](https://github.com/pd4d10/nvmx/releases), rename to `nvmx.exe` and replace `C:\Users\Your-User-Name\.nvmx\bin\nvmx.exe` with it
+
+### Uninstall nvmx
+
+Just remove `~/.nvmx`(macOS, Linux) or `C:\Users\Your-User-Name\.nvmx`
 
 # License
 
