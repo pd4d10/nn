@@ -142,7 +142,13 @@ nvmx upgrade  # Downloading latest version of nvmx from GitHub and replace the o
 
 ### Uninstall nvmx
 
-Just remove `~/.nvmx`(macOS, Linux) or `C:\Users\Your-User-Name\.nvmx`
+Just remove `~/.nvmx`(macOS, Linux) or `C:\Users\Your-User-Name\.nvmx`(Windows)
+
+## Technical details
+
+nvmx is written in JavaScript. We use [pkg](https://github.com/zeit/pkg) to bundle all JS files to a binary, to make it zero dependencies.
+
+The installation script just download the latest version from [release](https://github.com/pd4d10/nvmx/releases), place it to `~/.nvmx`(macOS, Linux) or `C:\Users\Your-User-Name\.nvmx`(Windows), then add it to PATH so users could access it in shell directly.
 
 # License
 
