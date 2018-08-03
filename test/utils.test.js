@@ -4,7 +4,7 @@ const { ensureArchCorrect, getNodeDirByMeta, getMetaByNodeDir, systemArch } = re
 
 describe('get arch', () => {
   test('not specified fallback to system', () => {
-    expect(ensureArchCorrect()).toBe('x64')
+    expect(ensureArchCorrect()).toBe(systemArch)
   })
 
   test('unknown arch fallback to system', () => {
