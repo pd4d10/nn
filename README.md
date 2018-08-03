@@ -30,6 +30,8 @@ Open PowerShell and run following command:
 Invoke-Expression (Invoke-WebRequest https://raw.githubusercontent.com/pd4d10/nvmx/master/install.ps1)
 ```
 
+**Notice**: If you have Node.js installed previously, version switch may not work because of PATH priority. Try to uninstall it, or increase priority of path `C:\Users\Your-User-Name\.nvmx\current`
+
 ## Usage
 
 Use `-h` or `--help` to get help messages
