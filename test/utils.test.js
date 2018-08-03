@@ -1,5 +1,6 @@
 const os = require('os')
-const { ensureArchCorrect, getNodeDirByMeta, getMetaByNodeDir } = require('../lib/utils')
+const path = require('path')
+const { ensureArchCorrect, getNodeDirByMeta, getMetaByNodeDir, systemArch } = require('../lib/utils')
 
 describe('get arch', () => {
   test('not specified fallback to system', () => {
@@ -8,7 +9,13 @@ describe('get arch', () => {
 
   test('unknown arch fallback to system', () => {
     const spy = jest.spyOn(global.console, 'warn')
-    expect(ensureArchCorrect('unknown')).toBe('x64')
+    expect(ensureArchCorrect('unknown')).toBe(
+      {
+        x64: 'x64',
+        ia32: 'x86',
+        x32: 'x86',
+      }[process.arch],
+    )
     expect(spy).toBeCalled()
   })
 
@@ -28,10 +35,10 @@ describe('get arch', () => {
 describe('get node dir by meta', () => {
   const home = os.homedir() + '/.nvmx'
   test('full version', () => {
-    expect(getNodeDirByMeta('v10.7.0', false, 'x64')).toBe(home + '/node/v10.7.0-x64')
+    expect(getNodeDirByMeta('v10.7.0', false, 'x64')).toBe(path.resolve('home', 'node', 'v10.7.0-x64'))
   })
   test('no leading v', () => {
-    expect(getNodeDirByMeta('10.7.0', false, 'x64')).toBe(home + '/node/v10.7.0-x64')
+    expect(getNodeDirByMeta('10.7.0', false, 'x64')).toBe(path.resolve('home', 'node', 'v10.7.0-x64'))
   })
 })
 
