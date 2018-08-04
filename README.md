@@ -30,7 +30,21 @@ Open PowerShell and run following command:
 Invoke-Expression (Invoke-WebRequest https://raw.githubusercontent.com/pd4d10/nvmx/master/install.ps1)
 ```
 
-**Notice**: If you have Node.js installed previously, version switch may not work because of PATH priority. Try to uninstall it, or increase priority of path `C:\Users\Your-User-Name\.nvmx\current`
+**Notice**: If you have Node.js installed previously, version switch may not work because of PATH priority. Try to uninstall previous version, or increase priority of path `C:\Users\Your-User-Name\.nvmx\current`
+
+### For those who have slow network to Amazon S3
+
+It is also hosted on [Gitee](https://gitee.com/pd4d10/nvmx), just use `install-1` scripts instead:
+
+```sh
+curl -o- https://raw.githubusercontent.com/pd4d10/nvmx/master/install-1.sh | bash
+# Or use wget:
+wget -qO- https://raw.githubusercontent.com/pd4d10/nvmx/master/install-1.sh | bash
+```
+
+```powershell
+Invoke-Expression (Invoke-WebRequest https://raw.githubusercontent.com/pd4d10/nvmx/master/install-1.ps1)
+```
 
 ## Usage
 
