@@ -27,7 +27,7 @@ describe('get arch', () => {
 })
 
 describe('get node dir by meta', () => {
-  const home = os.homedir() + '/.nvmx'
+  const home = os.homedir() + '/.nn'
   test('full version', () => {
     expect(getNodeDirByMeta('v10.7.0', false, 'x64')).toBe(path.resolve(home, 'node', 'v10.7.0-x64'))
   })
@@ -37,7 +37,7 @@ describe('get node dir by meta', () => {
 })
 
 describe('get meta by node dir', () => {
-  const home = os.homedir() + '/.nvmx'
+  const home = os.homedir() + '/.nn'
   test('node', () => {
     expect(getMetaByNodeDir(home + '/node/v10.7.0-x64')).toEqual({ version: 'v10.7.0', arch: 'x64', isChakraCore: false })
   })

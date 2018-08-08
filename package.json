@@ -1,10 +1,10 @@
 {
-  "name": "nvmx",
+  "name": "nn",
   "version": "0.0.4",
   "description": "Node.js version manager",
   "main": "lib",
   "bin": {
-    "nvmx": "lib/index.js"
+    "nn": "lib/index.js"
   },
   "files": [
     "lib"
@@ -16,15 +16,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pd4d10/nvmx.git"
+    "url": "git+https://github.com/pd4d10/nn.git"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pd4d10/nvmx/issues"
+    "url": "https://github.com/pd4d10/nn/issues"
   },
-  "homepage": "https://github.com/pd4d10/nvmx",
+  "homepage": "https://github.com/pd4d10/nn",
   "dependencies": {
     "chalk": "^2.4.1",
     "commander": "^2.16.0",
