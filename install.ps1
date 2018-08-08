@@ -9,7 +9,7 @@ else {
   $arch = 'x86'
 }
 
-$version = "v0.0.4"
+$version = "v0.0.5"
 $url = "https://github.com/pd4d10/nn/releases/download/$version/nn-win-$arch.exe"
 
 # https://stackoverflow.com/a/19853757
