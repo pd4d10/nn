@@ -132,13 +132,11 @@ nn support nightly, rc, and even node-chakracore. They are hosted on different m
 nn mirror taobao  # Set mirror to taobao
 ```
 
-### Upgrade nn
+### Upgrade nn to latest
 
-```sh
-nn upgrade  # Downloading latest version of nn from GitHub and replace the old version
-```
+_Option 1_: run `nn upgrade`. Only for macOS and Linux because Windows program seems can't delete itself while running.
 
-**Notice**: Seems that program at Windows can't delete itself while running. So you may need to download binary from [release page](https://github.com/pd4d10/nn/releases), rename to `nn.exe` and replace `C:\Users\Your-User-Name\.nn\bin\nn.exe` with it
+_Option 2_: Go to [Installation](#installation) and run it again.
 
 ### Uninstall nn
 
