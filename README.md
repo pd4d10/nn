@@ -1,4 +1,4 @@
-# nn [![Build status](https://travis-ci.org/pd4d10/nn.svg)](https://travis-ci.org/pd4d10/nn) [![Build status](https://ci.appveyor.com/api/projects/status/o79fl2xn9r0f85m8?svg=true)](https://ci.appveyor.com/project/pd4d10/nn)
+# nn [![Build status](https://travis-ci.org/pd4d10/nn.svg)](https://travis-ci.org/pd4d10/nn) [![Build status](https://ci.appveyor.com/api/projects/status/l045d5ysqmt4xoke?svg=true)](https://ci.appveyor.com/project/pd4d10/nn)
 
 nn is a Node.js version manager. It is
 
