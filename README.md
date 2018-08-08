@@ -1,4 +1,4 @@
-# nn [![Travis](https://img.shields.io/travis/pd4d10/nn.svg)](https://travis-ci.org/pd4d10/nn) [![AppVeyor](https://img.shields.io/appveyor/ci/pd4d10/nn.svg)](https://ci.appveyor.com/project/pd4d10/nn)
+# nn [![Build status](https://travis-ci.org/pd4d10/nn.svg)](https://travis-ci.org/pd4d10/nn) [![Build status](https://ci.appveyor.com/api/projects/status/o79fl2xn9r0f85m8?svg=true)](https://ci.appveyor.com/project/pd4d10/nn)
 
 nn is a Node.js version manager. It is
 
@@ -31,20 +31,6 @@ Invoke-Expression (Invoke-WebRequest https://raw.githubusercontent.com/pd4d10/nn
 ```
 
 **Notice**: If you have Node.js installed previously, version switch may not work because of PATH priority. Try to uninstall previous version, or increase priority of path `C:\Users\Your-User-Name\.nn\current`
-
-### For those who have slow network to Amazon S3
-
-It is also hosted on [Gitee](https://gitee.com/pd4d10/nn), just use `install-1` scripts instead:
-
-```sh
-curl -o- https://raw.githubusercontent.com/pd4d10/nn/master/install-1.sh | bash
-# Or use wget:
-wget -qO- https://raw.githubusercontent.com/pd4d10/nn/master/install-1.sh | bash
-```
-
-```powershell
-Invoke-Expression (Invoke-WebRequest https://raw.githubusercontent.com/pd4d10/nn/master/install-1.ps1)
-```
 
 ## Usage
 
