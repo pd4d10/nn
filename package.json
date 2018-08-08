@@ -4,7 +4,7 @@
   "description": "Node.js version manager",
   "main": "lib",
   "bin": {
-    "nn": "lib/index.js"
+    "nn": "lib/nn.js"
   },
   "files": [
     "lib"
